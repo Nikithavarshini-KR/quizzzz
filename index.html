@@ -1,0 +1,667 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz</title>
+<style>
+/* BODY */
+body{
+margin:0;
+padding:0;
+font-family:Arial, sans-serif;
+background:linear-gradient(to right,#4facfe,#00f2fe);
+}
+
+/* MAIN QUIZ BOX */
+.container{
+width:55%;
+margin:130px auto;
+background:#fff;
+padding:25px;
+border-radius:30px;
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+box-sizing:border-box;
+position: relative;
+overflow:hidden;
+}
+/* Required star */
+.required {
+    color: red;
+}
+
+/* HEADINGS */
+h1{
+text-align:center;
+font-size:38px;
+margin:10px 0;
+word-break:break-word;
+line-height:1.2;
+}
+
+h2,h3{
+word-break:break-word;
+}
+
+/* INPUTS */
+input[type=text],
+input[type=email]{
+width:100%;
+padding:10px;
+margin:8px 0 15px;
+border:2px solid #ccc;
+border-radius:8px;
+box-sizing:border-box;
+font-size:16px;
+}
+input[type="radio"] {
+    margin-right: 8px;
+    accent-color: #4facfe;
+}
+
+/* BUTTON */
+button{
+width:100%;
+padding:12px;
+border:none;
+border-radius:12px;
+background:#007bff;
+color:#fff;
+font-size:16px;
+cursor:pointer;
+margin-top:15px;
+}
+
+button:hover{
+background:#007bff;
+}
+
+/* CERTIFICATE */
+#qq{
+display:none;
+width:100vw;
+height:100vh;
+background:#fdfdfd;
+border:12px solid gold;
+box-sizing:border-box;
+padding:20px;
+position:relative;
+text-align:center;
+overflow:hidden;
+}
+
+/* LOGO */
+#mm img{
+width:90px;
+margin-bottom:10px;
+}
+
+/* CERTIFICATE TEXT */
+#qq h1{
+font-size:38px;
+letter-spacing:2px;
+margin:10px 0;
+}
+
+#qq h2{
+font-size:28px;
+margin:12px 0;
+}
+
+#result{
+font-size:30px;
+font-weight:bold;
+color:green;
+margin:20px 0;
+}
+
+#qq p{
+font-size:22px;
+margin-top:20px;
+line-height:1.4;
+}
+
+/* SIGNATURE + DATE */
+.bottom{
+position:absolute;
+bottom:30px;
+left:30px;
+right:30px;
+display:flex;
+justify-content:space-between;
+align-items:flex-end;
+}
+
+.sign{
+text-align:left;
+font-size:25px;
+font-weight:bold;
+}
+
+.sign img{
+width:130px;
+display:block;
+margin-bottom:5px;
+}
+
+.date{
+font-size:25px;
+font-weight:bold;
+text-align:right;
+}
+
+/* PRINT */
+@page{
+size:landscape;
+margin:0;
+}
+
+@media print{
+body{
+background:white;
+}
+#qq{
+width:100%;
+height:100%;
+border:12px solid gold;
+}
+}
+
+/* MOBILE FIX */
+@media only screen and (max-width:768px){
+
+.container{
+width:77% !important;
+padding:15px !important;
+}
+
+h1{
+font-size:28px !important;
+}
+
+#qq{
+width:100vw !important;
+height:100vh !important;
+padding:12px !important;
+border:8px solid gold !important;
+}
+
+#qq h1{
+font-size:22px !important;
+letter-spacing:1px !important;
+}
+
+#qq h2{
+font-size:18px !important;
+}
+
+#result{
+font-size:22px !important;
+}
+
+#qq p{
+font-size:15px !important;
+}
+
+#mm img{
+width:65px !important;
+}
+
+.bottom{
+bottom:20px !important;
+left:15px !important;
+right:15px !important;
+display:flex !important;
+justify-content:space-between !important;
+align-items:flex-end !important;
+}
+
+.sign{
+font-size:18px !important;
+}
+
+.sign img{
+width:85px !important;
+}
+
+.date{
+font-size:18px !important;
+}
+}
+</style>
+</head>
+<script>
+    
+
+
+// Start Quiz
+function startQuiz() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let gender = document.querySelector('input[name="gender"]:checked');
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if (name === "" || email === "" || !gender) {
+        alert("Please fill all details!");
+        return;
+    }
+    if(!email.match(emailPattern)) {
+    alert("Enter valid email!");
+    return;
+}
+    document.getElementById("userSection").style.display = "none";
+    document.getElementById("quizSection").style.display = "block";
+    document.getElementById("displayName").innerText = name;
+    document.getElementById("vj").innerText = name;
+
+    
+}
+
+
+
+
+// CALCULATE SCORE
+function submitQuiz() {
+   
+
+
+    let score = 0;
+
+    if (document.getElementById("vj").checked) score++;
+    if (document.getElementById("nn").checked) score++;
+    if (document.getElementById("ll").checked) score++;
+    if (document.getElementById("pp").checked) score++;
+    if (document.getElementById("oo").checked) score++;
+    if (document.getElementById("dd").checked) score++;
+    if (document.getElementById("ff").checked) score++;
+    if (document.getElementById("ss").checked) score++;
+    if (document.getElementById("ww").checked) score++;
+    if (document.getElementById("jj").checked) score++;
+    if (document.getElementById("nn1").checked) score++;
+    if (document.getElementById("nn2").checked) score++;
+    if (document.getElementById("nn3").checked) score++;
+    if (document.getElementById("nn4").checked) score++;
+    if (document.getElementById("nn5").checked) score++;
+    if (document.getElementById("nn6").checked) score++;
+    if (document.getElementById("nn7").checked) score++;
+    if (document.getElementById("nn8").checked) score++;
+    if (document.getElementById("nn9").checked) score++;
+    if (document.getElementById("nn0").checked) score++;
+    
+
+
+    // Show result on page
+    document.getElementById("result").innerHTML =
+        "  Score: " + score + " / 20";
+
+    // Disable all inputs after submit
+    let inputs = document.querySelectorAll("input");
+    inputs.forEach(input => input.disabled = true);
+document.getElementById("quizSection").style="display:none";
+document.getElementById("qq").style="display:block";
+document.getElementById("solai").style="display:none";
+document.body.style.background = "white";
+    document.getElementById("vjj").innerHTML = document.getElementById("displayName").innerHTML;
+document.getElementById("dz").innerHTML=new Date().toDateString();
+
+document.getElementById("qq").value;
+
+window.print();
+}
+
+</script>
+<body>
+<div class="container" id="solai">
+
+<!-- USER DETAILS -->
+
+<div id="userSection">
+    <h1>Quiz Registration</h1>
+
+    <label>Name <span class="required">*</span></label><br>
+    <input type="text" id="name" required><br>
+
+    <label>Email <span class="required">*</span></label><br>
+    <input type="email" id="email" required><br>
+
+        <label>Gender <span class="required">*</span></label><br><br>
+    <input type="radio" name="gender" value="Male">Male
+    <input type="radio" name="gender" value="Female">Female
+    <br><br>
+
+    <button onclick="startQuiz()">Start Quiz</button>
+</div>
+
+<!-- QUIZ SECTION -->
+<form id="quizSection"style="display:none">
+
+
+    <h1>Welcome, <span id="displayName"></span> 👋</h1>
+<div id="timer" style="font-size:18px; font-weight:bold; color:red;"></div>
+<h3>1. The minimum number of stacks needed to implement a queue is
+<span class="required">*</span></h3>
+<input type="radio"
+name="2" id="vj">
+2</input><br><br>
+<input type="radio"
+name="2" >
+3</input><br><br>
+<input type="radio"
+name="2" >
+1
+</input><br><br>
+<h3>2. In the worst case, the number of comparisons needed to search a singly linked list of length n for a given element is
+<span class="required">*</span>
+</h3>
+<input type="radio"
+name= "log(2*n)
+"> log(2*n)
+</input><br><br>
+<input type="radio"
+name="log(2*n)
+">
+log(2*n) -1
+</input><br><br>
+<input type="radio"
+name="log(2*n)
+" id="nn">
+n
+</input><br><br>
+<h3>3. Which of the following sorting algorithms can be used to sort a random linked list with minimum time complexity?
+<span class="required">*</span>
+</h3>
+<input type="radio"
+name="Merge Sort
+" id="ll">
+Merge Sort
+</input><br><br>
+<input type="radio"
+name="Merge Sort
+">
+Insertion Sort
+</input><br><br>
+<input type="radio"
+name="Merge Sort
+">
+Quick Sort
+</input><br><br>
+<h3>4. Consider a binary tree with n nodes, where each node can have at most two children. The height of the tree is defined as the maximum number of edges between the root node and any leaf node. Which of the following statements is true regarding the height h of this binary tree?
+<span class="required">*</span>
+</h3>
+<input type="radio"
+name="The height of the tree can be greater than or equal to n-1.
+"> 
+The height of the tree is always equal to log₂(n).
+</input><br><br>
+<input type="radio"
+name="The height of the tree can be greater than or equal to n-1.
+" id="pp">
+The height of the tree can be greater than or equal to n-1.
+</input><br><br>
+<input type="radio"
+name="The height of the tree can be greater than or equal to n-1.
+">
+The height of the tree can be greater than or equal to log₂(n).
+</input><br><br>
+<h3>5. You want the maximum sum of a contiguous subarray, but you may delete at most one element. Which technique runs in O(n) time?
+<span class="required">*</span>
+</h3>
+<input type="radio"
+name="Two nested Kadane passes (one forward, one backward) and combine
+">
+Sort the array and pick top sums
+</input><br><br>
+<input type="radio"
+name="Two nested Kadane passes (one forward, one backward) and combine
+" id="oo">
+Two nested Kadane passes (one forward, one backward) and combine
+</input><br><br>
+<input type="radio"
+name="Two nested Kadane passes (one forward, one backward) and combine
+">
+Brute‐force try deleting each element (O(n²))
+</input><br><br>
+<h3>6. Consider a hash table of size seven, with starting index zero, and a hash function (7x+3) mod 4. Assuming the hash table is initially empty, which of the following is the contents of the table when the sequence 1, 3, 8, 10 is inserted into the table using closed hashing ? Here “__” denotes an empty location in the table.
+<span class="required">*</span>
+</h3>
+<input type="radio"
+name="3, 10, 1, 8, __ , __ , __
+" id="dd">3, 10, 1, 8, __ , __ , __
+</input><br><br>
+<input type="radio"
+name="3, 10, 1, 8, __ , __ , __
+">1, __ , 3, __ , 8, __ , 10
+</input><br><br>
+<input type="radio"
+name="3, 10, 1, 8, __ , __ , __
+">1, 3, 8, 10, __ , __ , __
+</input><br><br>
+<h3>7. The following numbers are inserted into an empty binary search tree in the given order: 10, 1, 3, 5, 15, 12, 16. What is the height of the binary search tree (the height is the maximum distance of a leaf node from the root)?
+<span class="required">*</span>
+</h3>
+<input type="radio"
+name="3">4</input><br><br>
+<input type="radio"
+name="3" id="ff">3</input><br><br>
+<input type="radio"
+name="3">2</input><br><br>
+<h3>8. Suppose the numbers 7, 5, 1, 8, 3, 6, 0, 9, 4, 2 are inserted in that order into an initially empty binary search tree. The binary search tree uses the usual ordering on natural numbers. What is the in-order traversal sequence of the resultant tree?
+<span class="required">*</span>
+</h3>
+<input type="radio"
+name="0 1 2 3 4 5 6 7 8 9
+" id="ss">0 1 2 3 4 5 6 7 8 9
+</input><br><br>
+<input type="radio"
+name="0 1 2 3 4 5 6 7 8 9
+">0 2 4 3 1 6 5 9 8 7
+</input><br><br>
+<input type="radio"
+name="0 1 2 3 4 5 6 7 8 9
+">9 8 6 4 2 3 0 1 5 7
+</input><br><br>
+<h3>9. When searching for the key value 60 in a binary search tree, nodes containing the key values 10, 20, 40, 50, 70 80, 90 are traversed, not necessarily in the order given. How many different orders are possible in which these key values can occur on the search path from the root to the node containing the value 60?
+<span class="required">*</span>
+</h3>
+<input type="radio"
+name="35">64</input><br><br>
+<input type="radio"
+name="35" id="ww">35</input><br><br>
+<input type="radio"
+name="35">128</input><br><br>
+<h3>10. What is the worst case possible height of AVL tree?
+<span class="required">*</span>
+</h3>
+<input type="radio"
+name="1.44log n (Assume base of log is 2)
+">2Logn (Assume base of log is 2)
+</input><br><br>
+<input type="radio"
+name="1.44log n (Assume base of log is 2)
+">Theta(n)
+</input><br><br>
+<input type="radio"
+name="1.44log n (Assume base of log is 2)
+" id="jj">1.44log n (Assume base of log is 2)
+</input><br><br>
+<h3>11. The order of an internal node in a B+ tree index is the maximum number of children it can have. Suppose that a child pointer takes 6 bytes, the search field value takes 14 bytes, and the block size is 512 bytes. What is the order of the internal node?
+<span class="required">*</span>
+</h3>
+<input type="radio"
+name="26" id="nn1">26</input><br><br>
+<input type="radio"
+name="26">24</input><br><br>
+<input type="radio"
+name="26">27</input><br><br>
+<h3> 12. A B-Tree used as an index for a large database table has four levels including the root node. If a new key is inserted in this index, then the maximum number of nodes that could be newly created in the process are
+<span class="required">*</span>
+</h3>
+<input type="radio"
+name="4">6</input><br><br>
+<input type="radio"
+name="4" id="nn2">5</input><br><br>
+<input type="radio"
+name="4">7</input><br><br>
+<h3> 13. B+ Trees are considered BALANCED because
+<span class="required">*</span>
+</h3>
+<input type="radio"
+name="the lengths of the paths from the root to all leaf nodes are all equal.
+" id="nn3">the lengths of the paths from the root to all leaf nodes are all equal.
+</input><br><br>
+<input type="radio"
+name="the lengths of the paths from the root to all leaf nodes are all equal.
+">the number of records in any two leaf nodes differ by at most 1.
+</input><br><br>
+<input type="radio"
+name="the lengths of the paths from the root to all leaf nodes are all equal.
+">the number of children of any two non-leaf sibling nodes differ by at most 1.
+</input><br><br>
+<h3> 14. In a file which contains 1 million records and the order of the tree is 100, then what is the maximum number of nodes to be accessed if B+ tree index is used?
+<span class="required">*</span>
+</h3>
+<input type="radio"
+name="4" id="nn4">4</input><br><br>
+<input type="radio"
+name="4">3</input><br><br>
+<input type="radio"
+name="4">10</input><br><br>
+<h3> 15. What is the worst case efficiency for a path compression algorithm?
+<span class="required">*</span>
+</h3>
+<input type="radio"
+name="O(N log N)
+">O(N log N)
+</input><br><br>
+<input type="radio"
+name="O(N log N)
+">O(log N)
+</input><br><br>
+<input type="radio"
+name="O(N log N)
+" id="nn5">O(M log N)
+</input><br><br>
+<h3> 16. Let G be a weighted undirected graph and e be an edge with maximum weight in G. Suppose there is a minimum weight spanning tree in G containing the edge e. Which of the following statements is always TRUE?  
+<span class="required">*</span>
+</h3>
+<input type="radio"
+name="There exists a cycle in G having all edges of maximum weight
+">There exists a cycle in G having all edges of maximum weight
+</input><br><br>
+<input type="radio"
+name="There exists a cycle in G having all edges of maximum weight
+" id="nn6">There exists a cutset in G having all edges of maximum weight.
+</input><br><br>
+<input type="radio"
+name="There exists a cycle in G having all edges of maximum weight
+">All edges in G have the same weight
+</input><br><br>
+<h3> 17. The average depth of a binary search tree is:
+<span class="required">*</span>
+</h3>
+<input type="radio"
+name="O(log n)
+" id="nn7">O(log n)
+</input><br><br>
+<input type="radio"
+name="O(log n)
+">O(n log n)
+</input><br><br>
+<input type="radio"
+name="O(log n)
+">O(n0.5)
+</input><br><br>
+<h3> 18. A three dimensional array in ‘C++’ is declared as int A[x][y][z]. Consider that array elements are stored in row major order and indexing begins from 0. Here, the address of an item at the location A[p][q][r] can be computed as follows (where w is the word length of an integer):
+<span class="required">*</span>
+</h3>
+<input type="radio"
+name="&A[0][0][0] + w(y * z * p + z*q + r)
+">&A[0][0][0] + w(x * y * q + z * p + r)
+</input><br><br>
+<input type="radio"
+name="&A[0][0][0] + w(y * z * p + z*q + r)
+">&A[0][0][0] + w(y * z * q + z * p + r)
+</input><br><br>
+<input type="radio"
+name="&A[0][0][0] + w(y * z * p + z*q + r)
+" id="nn8">&A[0][0][0] + w(y * z * p + z*q + r)
+</input><br><br>
+<h3> 19. Which in-place procedure deletes the element at index k from a 1D array of length n (shifting remaining)?
+<span class="required">*</span>
+</h3>
+<input type="radio"
+name="Mark A[k] as null
+">Swap A[k] with A[n−1], then reduce length by 1
+</input><br><br>
+<input type="radio"
+name="Mark A[k] as null
+" id="nn9">For i from k to n−2, set A[i] = A[i+1]
+</input><br><br>
+<input type="radio"
+name="Mark A[k] as null
+">Reverse subarray [k..n−1]
+</input><br><br>
+<h3> 20. What is the worst-case number of arithmetic operations performed by recursive binary search on a sorted array of size n?
+<span class="required">*</span>
+</h3>
+<input type="radio"
+name="Θ(log2(n))
+" id="nn0">Θ(log2(n))
+</input><br><br>
+<input type="radio"
+name="Θ(log2(n))
+">Θ(n)
+</input><br><br>
+<input type="radio"
+name="Θ(log2(n))
+">Θ(√n)
+</input><br><br>
+<button type="button" onclick="submitQuiz()">Submit</button>
+</div>
+<div id="qq" style="display:none;">
+<center>
+
+<div id="mm">
+<img src="cer.gif" 
+</div>
+<h1>CERTIFICATE OF PARTICIPATION</h1><br>
+<h2>This is proudly Awarded To</h2><br>
+<h2 id="vjj"></h2>
+<div id="result" style="margin-top:20px; font-size:20px; font-weight:bold;"></div>
+<p>For your enthusiastic participation in the online Quiz<br>
+&nbsp;&nbsp;&nbsp;Competition on the topic of the Data Structures and Algorithms</p>
+<div class="bottom">
+<div class = "sign">
+<img src="sign.png">
+<div>Signature</div>
+</div>    
+    
+
+    <div class="date">
+        <span id="dz"></span>
+    </div>
+</div>
+</center>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
